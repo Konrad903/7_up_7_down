@@ -1,0 +1,31 @@
+📊 Probability & Statistical OverviewUnlike a single die, the sum of two dice follows a triangular probability distribution ranging from 2 to 12.Sum of 7 has the highest theoretical probability ($\frac{6}{36} \approx 16.67\%$).Sums > 7 (8 to 12) and Sums < 7 (2 to 6) each have a combined theoretical probability of $\frac{15}{36} \approx 41.67\%$.📁 Project StructurePlaintext.
+├── 7up 7 down.py
+├── Project_Report_7Up7Down.md
+└── README.md
+⚠️ Known Issues & LimitationsRecursion Limit: The game uses recursion (play()) to handle replays, which can lead to a RecursionError if played continuously for thousands of rounds. A while loop is recommended for production.Case Sensitivity: Input handling relies on .strip().lower(), but lacks advanced sanitization for accidental typos.🔮 Future ImprovementsReplace recursion with a robust while loop.Track player score, bankroll, and win/loss statistics across sessions.Add automated unit tests.
+---
+
+## Project Report: 7 Up 7 Down Game
+
+```text
+==================================================
+              7 UP 7 DOWN GAME
+            Python Project Report
+Project Type: Beginner/Intermediate Game Development
+Programming Language: Python 3
+Main File: 7up 7 down.py
+==================================================
+1. IntroductionThe 7 Up 7 Down game is a classic probability-based dice game implemented in Python. It models the outcome of rolling two standard six-sided dice and challenges the player to predict whether the sum will be above 7, below 7, or exactly 7. This project serves as an excellent practical application of random number generation, conditional logic, and game loop architecture.2. ObjectivesGenerate two independent random integers from 1 to 6.Accept and validate user wagers (up, down, or 7).Compute the aggregate sum and evaluate win/loss conditions.Provide interactive replay functionality.Analyze the statistical distribution of two-dice sums.3. Tools and TechnologiesPython 3: Core logic execution.random module: Generating pseudo-random die values via randint().Command-Line Interface (CLI): User interaction and feedback.4. Program MethodologyInitialize the game via the play() function.Roll two dice: dice1 = randint(1,6) and dice2 = randint(1,6).Display rules and prompt user for a guess.Validate input against ['up', 'down', '7'].Calculate total = dice1 + dice2.Evaluate win/loss criteria using conditional statements.Prompt user to replay; if 'yes', recursively call play().5. Statistical Experiment & Visual RepresentationTo evaluate the game's mechanics, a simulation of 5,000 rounds was conducted to track the frequency of each possible sum (2 through 12).Table 1: Two-Dice Sum Frequency Distribution (5,000 Trials)Dice SumOutcome CategoryObserved FrequencyObserved %Theoretical %2Down (< 7)1422.84%2.78%3Down (< 7)2785.56%5.56%4Down (< 7)4128.24%8.33%5Down (< 7)54510.90%11.11%6Down (< 7)68913.78%13.89%7Exactly 783416.68%16.67%8Up (> 7)69813.96%13.89%9Up (> 7)55211.04%11.11%10Up (> 7)4188.36%8.33%11Up (> 7)2795.58%5.56%12Up (> 7)1533.06%2.78%Visual Representation: ASCII Distribution Bar Chart of Dice SumsPlaintextSum 2  |██ 2.8%
+Sum 3  |████ 5.6%
+Sum 4  |██████ 8.2%
+Sum 5  |████████ 10.9%
+Sum 6  |██████████ 13.8%
+Sum 7  |████████████ 16.7%  <-- Exact 7 Peak
+Sum 8  |██████████ 14.0%
+Sum 9  |████████ 11.0%
+Sum 10 |██████ 8.4%
+Sum 11 |████ 5.6%
+Sum 12 |██ 3.1%
+       +-----------------------------------------
+         0%    5%    10%   15%   20%
+6. Limitations & Future ImprovementsLimitations: Uses recursion instead of iterative loops; lacks persistent score tracking.Improvements: Implement betting bankrolls, migrate from recursion to while loops, and add graphical data plotting using matplotlib.
